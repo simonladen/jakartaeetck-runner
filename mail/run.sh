@@ -64,11 +64,11 @@ fi
 # add missing argument with path
 sed -i 's/echo "1 /echo "1 html /g' "$WORKSPACE/docker/run_mailtck.sh"
 # create separate directory with pluggability report
-sed -ni 'p; s|mkdir -p $WORKSPACE/results/junitreports|mkdir -p $WORKSPACE/results/junitreports-pluggability|p' "$WORKSPACE/docker/run_mailtck.sh""
+sed -ni 'p; s|mkdir -p $WORKSPACE/results/junitreports|mkdir -p $WORKSPACE/results/junitreports-pluggability|p' "$WORKSPACE/docker/run_mailtck.sh"
 # run the converter again for pluggability report
-sed -ni 'p; s|args.txt $JT_REPORT_DIR $WORKSPACE/results/junitreports/|args.txt ${JT_REPORT_DIR}-Pluggability $WORKSPACE/results/junitreports-pluggability/|p' "$WORKSPACE/docker/run_mailtck.sh""
+sed -ni 'p; s|args.txt $JT_REPORT_DIR $WORKSPACE/results/junitreports/|args.txt ${JT_REPORT_DIR}-Pluggability $WORKSPACE/results/junitreports-pluggability/|p' "$WORKSPACE/docker/run_mailtck.sh"
 # tar both results
-sed -i 's|^tar \(.*\)$|tar \1 ${JT_REPORT_DIR}-Pluggability $WORKSPACE/results/junitreports-pluggability|g' "$WORKSPACE/docker/run_mailtck.sh""
+sed -i 's|^tar \(.*\)$|tar \1 ${JT_REPORT_DIR}-Pluggability $WORKSPACE/results/junitreports-pluggability|g' "$WORKSPACE/docker/run_mailtck.sh"
 
 
 
