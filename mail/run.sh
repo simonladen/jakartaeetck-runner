@@ -60,6 +60,18 @@ if [ -z "$JAMES_CONTAINER" ]; then
     docker exec -it james-mail /bin/bash -c /root/create_users.sh
 fi
 
+# fix broken running script
+# add missing argument with path
+# sed -i 's/echo "1 /echo "1 html /g' "$WORKSPACE/docker/run_mailtck.sh"
+# create separate directory with pluggability report
+# sed -ni 'p; s|mkdir -p $WORKSPACE/results/junitreports|mkdir -p $WORKSPACE/results/junitreports-pluggability|p' "$WORKSPACE/docker/run_mailtck.sh""
+# run the converter again for pluggability report
+# sed -ni 'p; s|args.txt $JT_REPORT_DIR $WORKSPACE/results/junitreports/|args.txt ${JT_REPORT_DIR}-Pluggability $WORKSPACE/results/junitreports-pluggability/|p' "$WORKSPACE/docker/run_mailtck.sh""
+# tar both results
+# sed -i 's|^tar \(.*\)$|tar \1 ${JT_REPORT_DIR}-Pluggability $WORKSPACE/results/junitreports-pluggability|g' "$WORKSPACE/docker/run_mailtck.sh""
+
+
+
 bash -x $WORKSPACE/docker/run_mailtck.sh | tee $WORKSPACE/mail.log
 
 # Stop the Mail container
@@ -72,4 +84,6 @@ fi
 TIMESTAMP=`date -Iminutes | tr -d :`
 report=$SCRIPTPATH/../results/mail-$TIMESTAMP.tar.gz
 echo Creating report $report
-tar zcf $report $WORKSPACE/payara6/glassfish/domains/domain1/logs
+# tar zcf $report $WORKSPACE/payara6/glassfish/domains/domain1/logs
+# tar zcf $report $WORKSPACE/activation-tck/JTreport/ $WORKSPACE/activation-tck/JTreport-Pluggability/ $WORKSPACE/results $SCRIPTPATH/payara6/glassfish/domains/domain1/logs
+tar zcf $report $WORKSPACE/
