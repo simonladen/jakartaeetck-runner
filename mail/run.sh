@@ -65,7 +65,7 @@ fi
 if [ ! -d "$WORKSPACE/JTreport-Pluggability/html" ]; then
     echo "creating JTreport-Pluggability/html"
     mkdir -p $WORKSPACE/JTreport-Pluggability/html
-    touch $WORKSPACE/JTreport-Pluggability/html/config.html
+   # touch $WORKSPACE/JTreport-Pluggability/html/config.html
 fi
 
 # fix broken running script
