@@ -60,6 +60,14 @@ if [ -z "$JAMES_CONTAINER" ]; then
     docker exec -it james-mail /bin/bash -c /root/create_users.sh
 fi
 
+
+# test
+if [ ! -d "$WORKSPACE/JTreport-Pluggability/html" ]; then
+    echo "creating JTreport-Pluggability/html"
+    mkdir -p $WORKSPACE/JTreport-Pluggability/html
+    touch $WORKSPACE/JTreport-Pluggability/html/config.html
+fi
+
 # fix broken running script
 # add missing argument with path
 # sed -i 's/echo "1 /echo "1 html /g' "$WORKSPACE/docker/run_activationtck.sh"
@@ -91,11 +99,6 @@ if [ ! -d "$SCRIPTPATH/../results" ]; then
     mkdir $SCRIPTPATH/../results
 fi
 
-# test
-if [ ! -d "$WORKSPACE/JTreport-Pluggability/html" ]; then
-    mkdir -p $WORKSPACE/JTreport-Pluggability/html
-    touch $WORKSPACE/JTreport-Pluggability/html/config.html
-fi
 
 TIMESTAMP=`date -Iminutes | tr -d :`
 report=$SCRIPTPATH/../results/mail-$TIMESTAMP.tar.gz
