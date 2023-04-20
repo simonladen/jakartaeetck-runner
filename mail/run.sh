@@ -91,10 +91,16 @@ if [ ! -d "$SCRIPTPATH/../results" ]; then
     mkdir $SCRIPTPATH/../results
 fi
 
+# test
+if [ ! -d "$WORKSPACE/JTreport-Pluggability/html" ]; then
+    mkdir -p $WORKSPACE/JTreport-Pluggability/html
+    touch $WORKSPACE/JTreport-Pluggability/html/config.html
+fi
+
 TIMESTAMP=`date -Iminutes | tr -d :`
 report=$SCRIPTPATH/../results/mail-$TIMESTAMP.tar.gz
 echo Creating report $report
 # tar zcf $report $WORKSPACE/payara6/glassfish/domains/domain1/logs
-#tar zcf $report $WORKSPACE/JTwork/mail-tck $WORKSPACE/JTreport-Pluggability $WORKSPACE/results
-tar zcf $report $WORKSPACE/JTwork/mail-tck $WORKSPACE/results
+tar zcf $report $WORKSPACE/JTwork/mail-tck $WORKSPACE/JTreport-Pluggability $WORKSPACE/results
+# tar zcf $report $WORKSPACE/JTwork/mail-tck $WORKSPACE/results
 # tar zcf $report $WORKSPACE/results
