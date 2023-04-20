@@ -95,5 +95,5 @@ TIMESTAMP=`date -Iminutes | tr -d :`
 report=$SCRIPTPATH/../results/mail-$TIMESTAMP.tar.gz
 echo Creating report $report
 # tar zcf $report $WORKSPACE/payara6/glassfish/domains/domain1/logs
-tar zcf $report $WORKSPACE/mail-tck/JTwork/mail-tck $WORKSPACE/mail-tck/JTreport-Pluggability $WORKSPACE/results
+tar zcf $report $WORKSPACE/JTwork/mail-tck $WORKSPACE/JTreport-Pluggability $WORKSPACE/results
 # tar zcf $report $WORKSPACE/results
