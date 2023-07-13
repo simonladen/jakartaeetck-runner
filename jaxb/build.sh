@@ -36,3 +36,7 @@ fi
 sed -i "s/glassfish7/payara6/g" "$WORKSPACE/docker/build_jaxbtck.sh"
 
 bash -x $WORKSPACE/docker/build_jaxbtck.sh
+
+rm -rf $WORKSPACE/jaxb-tck/tests/java2schema
+rm -rf $WORKSPACE/jaxb-tck/tests/schema_bind
+rm -rf $WORKSPACE/jaxb-tck/tests/schema2java
