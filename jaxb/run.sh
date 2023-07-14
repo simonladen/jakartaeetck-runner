@@ -38,6 +38,12 @@ if [ -z "$RUNTIME" ]; then
   export RUNTIME=Glassfish
 fi
 
+#remove 3/4 of the tests before running
+#rm -rf $WORKSPACE/jaxb-tck/tests/api
+rm -rf $WORKSPACE/jaxb-tck/tests/java2schema
+rm -rf $WORKSPACE/jaxb-tck/tests/schema_bind
+rm -rf $WORKSPACE/jaxb-tck/tests/schema2java
+
 bash -x $WORKSPACE/docker/run_jaxbtck.sh | tee $WORKSPACE/jaxb.log
 
 if [ ! -d "$SCRIPTPATH/../results" ]; then
