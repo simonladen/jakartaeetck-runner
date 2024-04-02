@@ -13,7 +13,7 @@ PORTING=$SCRIPTPATH/mail-tck
 OUTPUT=$PORTING/bundles
 
 if [ ! -d mail-tck ]; then
-  git clone https://github.com/payara/mail-tck
+  git clone https://github.com/jakartaee/mail-tck -b 2.1.1
 fi
 
 rm -f $PORTING/latest-glassfish.zip
